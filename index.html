@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <title>Canvas</title>
+    <title>Ahorcado</title>
 </head>
 <body>
-    <canvas id="lienzo" width="700" height="460"></canvas>
-    <script src="figuras/figuras.js"></script>
+    <div align="center"><canvas id="lienzo" width="890" height="492"></canvas></div>
+    <form action="" id="form">
+        <div align="center">
+            <input maxlength="1" id="letra" placeholder="Ingrese una Letra" class="txt" type="text" required></input></div><br>
+        <div align="center">
+            <button type="button" onclick="getLetter()"> VALIDAR</button></div>
+    </form>
+    <script type="text/javascript" src="figuras/figuras.js"></script>
 </body>
 </html>

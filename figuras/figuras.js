@@ -1,72 +1,232 @@
 const lienzo = document.getElementById('lienzo')
 const ctx = lienzo.getContext("2d")
+const ctxx = lienzo.getContext("2d")
+
+
 
 console.log(ctx);
-//Cuadrado
-const cuadrado = () => {
-ctx.beginPath()     
-ctx.fillStyle = "#ff5555" //define estilos 
-ctx.fillRect(25,50,150,150) //dibuja cuadrado
-}
 
-//Circulo
-const circulo = () => {
+//Bases
+const bases = () => {
 ctx.beginPath()
-ctx.arc(100,300,75, 0, 2*Math.PI)
-ctx.fillStyle = "#00e7ed"
+ctx.fillStyle = "white"
+ctx.fillRect(310,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(390,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(470,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(550,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(630,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(230,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(150,360,60,8) 
+
+ctx.beginPath()
+ctx.fillStyle = "white"
+ctx.fillRect(710,360,60,8) 
+}  
+
+//Cabeza
+const cabeza = () => {
+ctx.beginPath()
+ctx.arc(400,135,20, 0, 2*Math.PI)
+ctx.fillStyle = "white"
 ctx.fill()
-//Contorno
-ctx.lineWidth = 2 
-ctx.strokeStyle = "#25dcdc"
-ctx.stroke()
 }
 
-//Triangulo
-const triangulo = () => {
+//Torso
+const torso = () => {
+ctx.beginPath()     
+ctx.fillRect(390,150,9,50) 
+    }
+
+//Pie Derecho
+const pieDer = () => {
 ctx.beginPath()
-ctx.fillStyle = "#ffdf4a";
-ctx.moveTo(325, 50);
-ctx.lineTo(230, 210);
-ctx.lineTo(420, 210);
-ctx.fill();
+ctx.lineWidth=5;
+ctx.moveTo(397,199);
+ctx.lineTo(383,250);  
+ctx.strokeStyle = "white";
+ctx.stroke();
+    }
+
+//Mano Derecha
+const manoDer = () => {
+ctx.beginPath()
+ctx.lineWidth=5;
+ctx.moveTo(390,150);
+ctx.lineTo(370,180);  
+ctx.strokeStyle = "white";
+ctx.stroke();
 }
 
-//hexagono
-const hexagono = () => {
-    ctx.beginPath()
-    ctx.fillStyle = "#fe0e0f";
-    ctx.moveTo(210, 350);
-    ctx.lineTo(260, 270);
-    ctx.lineTo(350, 270);
-    ctx.lineTo(400, 350);
-    ctx.lineTo(350, 430);
-    ctx.lineTo(260, 430);
-    ctx.fill();
+//Pie Izquierdo
+const pieIzq = () => {
+ctx.beginPath()  
+ctx.lineWidth=5;
+ctx.moveTo(392,199);
+ctx.lineTo(375,250);  
+ctx.strokeStyle = "white";
+ctx.stroke(); 
+
+
     }
 
-//Pentagono
-const pentagono = () => {
-    ctx.beginPath()
-    ctx.fillStyle = "#9f51ff";
-    ctx.moveTo(550, 70);
-    ctx.lineTo(460, 140);
-    ctx.lineTo(490, 250);
-    ctx.lineTo(610, 250);
-    ctx.lineTo(640, 140);
-    ctx.fill();
+//Mano Izquierda
+const manoIzq = () => {
+ctx.beginPath()   
+ctx.lineWidth=5;
+ctx.moveTo(390,150);
+ctx.lineTo(380,190);  
+ctx.strokeStyle = "white";
+ctx.stroke();
     }
 
-//Rectangulo
-const rectangulo = () => {
-    ctx.beginPath()
-    ctx.fillStyle = "#00ce52";
-    ctx.fillRect(430,300,240,100) //dibuja cuadrado
-    ctx.fill();
-    }
 
-cuadrado()
-circulo()
-triangulo()
-hexagono()
-pentagono()
-rectangulo()
+//LETRAS
+const c = () => {
+    ctxx.beginPath();
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("C", 158, 350);
+    ctxx.stroke();
+}
+const h = () => {
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("H", 235, 350);
+    ctxx.stroke();
+}
+
+const a= () => {
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("A", 317, 350);
+    ctxx.stroke();
+    ctxx.fillText("A", 475, 350);
+    ctxx.stroke();
+}
+const v = () => {
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("V", 397, 350);
+    ctxx.stroke();
+}
+const l = () => {
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("L", 560, 350);
+    ctxx.stroke();
+}
+const e = () => {
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("E", 640, 350);
+    ctxx.stroke();
+}
+const s = () => {
+    ctxx.fillStyle = "white"
+    ctxx.font="bold 60px verdana";
+    ctxx.textAlign="start";
+    ctxx.fillText("S", 718, 350);
+    ctxx.stroke();
+}
+
+
+bases()
+
+var cont = 1;
+var ganar = 1;
+var getLetter = function(){
+var letra = document.getElementById("letra").value;
+let lt = letra.toLowerCase()
+console.log(lt+" ");
+console.log(cont)
+if(ganar===7){
+    window.alert('Has Ganado !!!');
+    window.location.reload();
+}
+if(lt==='c' || lt==='h' || lt==='a' || lt==='v' || lt==='l' || lt==='e' || lt==='s'){
+    if(lt==='c'){
+        c();
+        ganar++;
+    }
+    if(lt==='h'){
+        h();
+        ganar++;
+    }
+    if(lt==='a'){
+        a();
+        ganar++;
+    }
+    if(lt==='v'){
+        v();
+        ganar++;
+    }
+    if(lt==='l'){
+        l();
+        ganar++;
+    }
+    if(lt==='e'){
+        e();
+        ganar++;
+    }
+    if(lt==='s'){
+        s();
+        ganar++;
+    }
+}else{
+    if(cont===7){
+        window.alert('Has perdido... Vuelve a intentarlo');
+        window.location.reload();
+    }
+    if(cont===6){
+        manoIzq();
+        cont++;
+    }
+    if(cont===5){
+        pieIzq();
+        cont++;
+    }
+    if(cont===4){
+        manoDer();
+        cont++;
+    }
+    if(cont===3){
+        pieDer();
+        cont++;
+    }
+    if(cont===2){
+        torso();
+        cont++;
+    }
+    if(cont===1){
+        cabeza();
+        cont++;
+    }
+    
+}
+
+}
+
